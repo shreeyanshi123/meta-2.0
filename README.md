@@ -15,7 +15,7 @@ pinned: true
 ![Theme](https://img.shields.io/badge/Theme-Multi--Agent%20Interactions-6366f1?style=for-the-badge)
 ![OpenEnv](https://img.shields.io/badge/OpenEnv-Hackathon%20India%202026-f59e0b?style=for-the-badge)
 ![v1.0.0](https://img.shields.io/badge/version-1.0.0-22d3ee?style=for-the-badge)
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/hackathon-team/meta-2.0/blob/main/notebooks/train_grpo.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shreeyanshi123/meta-2.0/blob/main/notebooks/train_grpo.ipynb)
 
 ![Dashboard](assets/dashboard.png)
 
@@ -78,7 +78,7 @@ Total reward is clipped to **[−1, 1]** for trainer stability.
 
 We fine-tune `Qwen2.5-1.5B-Instruct` using **GRPO** (Group Relative Policy Optimization) with Unsloth for 4-bit LoRA training. Each of the 6 reward components is exposed as an independent reward function to TRL, giving per-component training curves. Training runs for 400 steps on a Colab T4 (~3 hours) or A100 (~45 minutes).
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/hackathon-team/meta-2.0/blob/main/notebooks/train_grpo.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shreeyanshi123/meta-2.0/blob/main/notebooks/train_grpo.ipynb)
 
 ![Reward Curve](assets/reward_curve.png)
 
@@ -98,14 +98,14 @@ See [before/after examples](assets/before_after_examples.md) for side-by-side co
 
 **Live Space:**
 ```
-https://huggingface.co/spaces/hackathon-team/tribunal-env
+https://huggingface.co/spaces/shreeyanshi123/tribunal-env
 ```
 
 **Install client and connect:**
 ```bash
 pip install tribunal-client
 from tribunal_client import TribunalClient
-client = TribunalClient("https://hackathon-team-tribunal-env.hf.space")
+client = TribunalClient("https://shreeyanshi123-tribunal-env.hf.space")
 obs = client.reset()
 result = client.step(my_verdict)
 ```
@@ -142,11 +142,11 @@ The explanation quality scorer uses **keyword grounding** against hidden ground-
 
 | Resource | URL |
 |----------|-----|
-| 🌐 HF Space | [tribunal-env](https://huggingface.co/spaces/hackathon-team/tribunal-env) |
-| 📓 Colab Notebook | [train_grpo.ipynb](https://colab.research.google.com/github/hackathon-team/meta-2.0/blob/main/notebooks/train_grpo.ipynb) |
-| 📝 Blog Post | [HuggingFace Blog](https://huggingface.co/blog/hackathon-team/tribunal-env) |
-| 🎥 Demo Video | [YouTube](https://youtube.com/watch?v=PLACEHOLDER) |
-| 💻 GitHub | [meta-2.0](https://github.com/hackathon-team/meta-2.0) |
+| 🌐 HF Space | [tribunal-env](https://huggingface.co/spaces/shreeyanshi123/tribunal-env) |
+| 📓 Colab Notebook | [train_grpo.ipynb](https://colab.research.google.com/github/shreeyanshi123/meta-2.0/blob/main/notebooks/train_grpo.ipynb) |
+| 📝 Blog Post | [HuggingFace Blog](https://huggingface.co/blog/shreeyanshi123/tribunal-env) |
+| 🎥 Demo Video | *Recording in progress — see `assets/video_script.md`* |
+| 💻 GitHub | [meta-2.0](https://github.com/shreeyanshi123/meta-2.0) |
 
 ## Team
 

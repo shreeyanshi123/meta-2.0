@@ -73,8 +73,7 @@ environment:
       - "Hackathon Team"
     license: "MIT"
     links:
-      github: "https://github.com/hackathon-team/meta-2.0"
-      colab: "https://colab.research.google.com/github/hackathon-team/meta-2.0/blob/main/notebooks/train_grpo.ipynb"
-      space: "https://huggingface.co/spaces/hackathon-team/tribunal-env"
-      blog: "https://huggingface.co/blog/hackathon-team/tribunal-env"
-      video: "https://youtube.com/watch?v=PLACEHOLDER"
+      github: "https://github.com/shreeyanshi123/meta-2.0"
+      colab: "https://colab.research.google.com/github/shreeyanshi123/meta-2.0/blob/main/notebooks/train_grpo.ipynb"
+      space: "https://huggingface.co/spaces/shreeyanshi123/tribunal-env"
+      blog: "https://huggingface.co/blog/shreeyanshi123/tribunal-env"

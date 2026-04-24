@@ -61,9 +61,9 @@ The most striking improvement is in false positive rate — the trained Judge le
 
 The environment is live on HuggingFace Spaces with an interactive dashboard. You can also train your own Judge:
 
-- **Space**: [tribunal-env](https://huggingface.co/spaces/hackathon-team/tribunal-env)
-- **Colab**: [train_grpo.ipynb](https://colab.research.google.com/github/hackathon-team/meta-2.0/blob/main/notebooks/train_grpo.ipynb)
-- **GitHub**: [meta-2.0](https://github.com/hackathon-team/meta-2.0)
+- **Space**: [tribunal-env](https://huggingface.co/spaces/shreeyanshi123/tribunal-env)
+- **Colab**: [train_grpo.ipynb](https://colab.research.google.com/github/shreeyanshi123/meta-2.0/blob/main/notebooks/train_grpo.ipynb)
+- **GitHub**: [meta-2.0](https://github.com/shreeyanshi123/meta-2.0)
 
 The evaluation script (`scripts/eval_judge.py`) runs any policy against the environment, computes all metrics including ECE calibration, and generates comparison plots.
 

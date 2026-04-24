@@ -45,3 +45,4 @@ grpo_tribunal_judge/
 assets/*.png
 assets/eval_summary.json
 assets/prompt_dataset.pkl
+.DS_Store

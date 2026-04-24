@@ -262,7 +262,7 @@ async def env_info() -> Dict[str, Any]:
             "anti_hack_penalty",
         ],
         "links": {
-            "repo": "https://github.com/hackathon-team/tribunal-env",
+            "repo": "https://github.com/shreeyanshi123/tribunal-env",
             "openenv_spec": "https://openenv.dev/spec",
         },
     }
