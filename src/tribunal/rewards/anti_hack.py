@@ -10,8 +10,10 @@ Triggers
 3. Explanation contains prompt-injection tokens: −0.5
 4. Explanation copies large verbatim chunks (>100 chars) from worker
    outputs without adding reasoning: −0.5
-   (Not implemented in scoring since we don't pass worker outputs here;
-    left as a hook for the aggregator to call separately.)
+5. Low-effort explanation: accusations present but explanation is very short
+   (<50 chars) or lacks any reasoning clause: −0.4
+6. Uniform confidence: all 4 per_worker_confidence values within 0.05 of
+   each other suggests no real analysis was performed: −0.2
 
 The ``parse_failed`` flag can be set by the caller if the verdict could not
 be parsed from raw JSON — this adds −0.5.
@@ -106,7 +108,35 @@ class AntiHackPenalty:
                 "Accused 0 workers with <30-char explanation but failures exist: -0.3"
             )
 
-        # --- 4. Prompt-injection / reserved tokens ---
+        # --- 4. Low-effort explanation with accusations ---
+        if len(verdict.accused) > 0:
+            expl_len = len(verdict.explanation)
+            has_reason = any(
+                kw in verdict.explanation.lower()
+                for kw in ("because", "due to", "since", "evidence", "indicates",
+                           "suggests", "shows", "confirms", "the reason")
+            )
+            if expl_len < 50 or (expl_len < 120 and not has_reason):
+                penalty -= 0.4
+                triggers.append("LOW_EFFORT")
+                notes.append(
+                    f"Accused {len(verdict.accused)} worker(s) but explanation is "
+                    f"low-effort ({expl_len} chars, reasoning={'yes' if has_reason else 'no'}): -0.4"
+                )
+
+        # --- 5. Uniform confidence (no differentiation) ---
+        confs = list(verdict.per_worker_confidence.values())
+        if len(confs) == 4:
+            conf_range = max(confs) - min(confs)
+            if conf_range < 0.05 and len(verdict.accused) > 0:
+                penalty -= 0.2
+                triggers.append("UNIFORM_CONFIDENCE")
+                notes.append(
+                    f"All confidence values within {conf_range:.3f} of each other "
+                    f"(range < 0.05) — suggests no real analysis: -0.2"
+                )
+
+        # --- 6. Prompt-injection / reserved tokens ---
         for pattern in _FORBIDDEN_PATTERNS:
             if pattern.search(verdict.explanation):
                 penalty -= 0.5
@@ -116,7 +146,7 @@ class AntiHackPenalty:
                 )
                 break  # Only penalise once for prompt injection
 
-        # --- 5. Verbatim copy from worker outputs ---
+        # --- 7. Verbatim copy from worker outputs ---
         if worker_outputs:
             explanation = verdict.explanation
             for wo in worker_outputs:

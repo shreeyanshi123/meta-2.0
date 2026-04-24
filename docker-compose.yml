@@ -4,14 +4,15 @@ services:
   tribunal:
     build: .
     ports:
-      - "8000:8000"
+      - "7860:7860"
     environment:
       - TRIBUNAL_SEED=42
       - TRIBUNAL_EPISODES=5
       - TRIBUNAL_FAILURE_RATE=0.6
       - TRIBUNAL_HOST=0.0.0.0
-      - TRIBUNAL_PORT=8000
+      - TRIBUNAL_PORT=7860
     volumes:
       - ./src:/app/src
-      - ./dashboard:/app/dashboard
+      - ./shared:/app/shared
+      - ./client:/app/client
     restart: unless-stopped

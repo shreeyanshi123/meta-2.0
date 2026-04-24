@@ -52,8 +52,14 @@ logger = logging.getLogger("tribunal.server")
 # Constants
 # ---------------------------------------------------------------------------
 
-VERSION = "0.1.0"
-_DASHBOARD_DIR = Path(__file__).resolve().parent.parent.parent / "dashboard" / "dist"
+VERSION = "1.0.0"
+
+# Dashboard dist directory — try multiple locations for dev vs Docker
+_DASHBOARD_CANDIDATES = [
+    Path(__file__).resolve().parent.parent.parent / "dashboard" / "dist",  # dev: src/tribunal -> root
+    Path("/app/dashboard/dist"),  # Docker
+]
+_DASHBOARD_DIR = next((p for p in _DASHBOARD_CANDIDATES if p.is_dir()), _DASHBOARD_CANDIDATES[0])
 
 # ---------------------------------------------------------------------------
 # Global environment + lock
@@ -67,10 +73,11 @@ _sse_subscribers: list[asyncio.Queue] = []
 def _get_env() -> TribunalEnvironment:
     global _env
     if _env is None:
+        import os
         _env = TribunalEnvironment(
-            seed=42,
-            episodes_per_reset=5,
-            failure_rate=0.6,
+            seed=int(os.environ.get("TRIBUNAL_SEED", "42")),
+            episodes_per_reset=int(os.environ.get("TRIBUNAL_EPISODES", "5")),
+            failure_rate=float(os.environ.get("TRIBUNAL_FAILURE_RATE", "0.6")),
         )
     return _env
 
@@ -81,7 +88,10 @@ def _get_env() -> TribunalEnvironment:
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    logger.info("Tribunal server starting  (version %s)", VERSION)
+    import os
+    port = os.environ.get("TRIBUNAL_PORT", "7860")
+    host = os.environ.get("TRIBUNAL_HOST", "0.0.0.0")
+    logger.info("Tribunal server starting  (version %s, %s:%s)", VERSION, host, port)
     _get_env()
     yield
     env = _get_env()

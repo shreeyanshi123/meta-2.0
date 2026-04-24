@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 8%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 10%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 10%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 36 82% 72%;
+    --primary-foreground: 222 47% 8%;
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 217 33% 17%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 350 89% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 36 82% 72%;
+    --radius: 0.75rem;
+  }
+
+  * {
+    @apply border-tribunal-border;
+  }
+
+  body {
+    @apply bg-tribunal-bg text-white;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply relative overflow-hidden rounded-xl border border-white/10 bg-tribunal-surface/80 backdrop-blur-xl shadow-glass;
+    background-image: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0) 100%);
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300 ease-out;
+  }
+
+  .glass-card-hover:hover {
+    @apply border-white/20 shadow-glass-lg;
+    transform: scale(1.01);
+  }
+
+  .gold-text {
+    @apply text-tribunal-gold;
+  }
+
+  .gold-glow {
+    text-shadow: 0 0 12px rgba(241, 194, 125, 0.5);
+  }
+
+  .mono-output {
+    @apply font-mono text-sm leading-relaxed text-gray-300;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium;
+  }
+
+  .badge-rose {
+    @apply badge bg-tribunal-rose/15 text-tribunal-rose border border-tribunal-rose/25;
+  }
+
+  .badge-cyan {
+    @apply badge bg-tribunal-cyan/15 text-tribunal-cyan border border-tribunal-cyan/25;
+  }
+
+  .badge-amber {
+    @apply badge bg-tribunal-amber/15 text-tribunal-amber border border-tribunal-amber/25;
+  }
+
+  .badge-gold {
+    @apply badge bg-tribunal-gold/15 text-tribunal-gold border border-tribunal-gold/25;
+  }
+
+  .badge-emerald {
+    @apply badge bg-tribunal-emerald/15 text-tribunal-emerald border border-tribunal-emerald/25;
+  }
+
+  .section-title {
+    @apply text-xs font-semibold uppercase tracking-widest text-gray-500;
+  }
+
+  .progress-bar {
+    @apply h-2 rounded-full bg-tribunal-surface-light overflow-hidden;
+  }
+
+  .progress-fill {
+    @apply h-full rounded-full transition-all duration-700 ease-out;
+  }
+}
+
+/* Phase timeline animations */
+@keyframes phaseActive {
+  0% { opacity: 0.5; transform: scale(0.95); }
+  50% { opacity: 1; transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.phase-active {
+  animation: phaseActive 0.4s ease-out forwards;
+}

@@ -1,0 +1,80 @@
+name: CI — Lint, Test, Smoke
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install linters
+        run: pip install ruff black
+
+      - name: Ruff lint
+        run: ruff check src/ shared/ client/ scripts/ tests/ --output-format=github
+
+      - name: Black format check
+        run: black --check src/ shared/ client/ scripts/ tests/
+
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: lint
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install -e shared/
+          pip install -e client/
+          pip install -e ".[dev]"
+          pip install matplotlib numpy
+
+      - name: Run pytest
+        run: |
+          PYTHONPATH=src:shared:client \
+          pytest tests/ -v --tb=short
+
+      - name: Start env server
+        run: |
+          PYTHONPATH=src:shared:client \
+          TRIBUNAL_EPISODES=1 TRIBUNAL_FAILURE_RATE=0.6 TRIBUNAL_PORT=8000 \
+          python -m uvicorn tribunal.server:app \
+            --host 0.0.0.0 --port 8000 &
+          for i in $(seq 1 30); do
+            curl -sf http://localhost:8000/health && break
+            sleep 1
+          done
+
+      - name: Smoke test
+        run: python scripts/smoke_test.py --base-url http://localhost:8000
+
+      - name: Eval — random policy (50 rounds)
+        run: |
+          python scripts/eval_judge.py \
+            --env-url http://localhost:8000 \
+            --policy random \
+            --n-rounds 50 \
+            --seed 42 \
+            --out runs/ci_eval_random
+
+      - name: Upload eval artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eval-results
+          path: runs/

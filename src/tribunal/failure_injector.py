@@ -338,6 +338,7 @@ class FailureInjector:
         seed: int,
         failure_rate: float = 0.6,
         max_failures_per_round: int = 3,
+        adaptive: bool = False,
     ) -> None:
         if max_failures_per_round >= 4:
             raise ValueError("max_failures_per_round must be < 4 (never corrupt all four).")
@@ -349,6 +350,34 @@ class FailureInjector:
         self.max_failures_per_round = max_failures_per_round
         self._round_counter = 0
         self.stats = InjectionStats()
+
+        # --- Adaptive difficulty ---
+        self.adaptive = adaptive
+        self._difficulty_level = 0          # 0 = normal, 1 = harder, 2 = hardest
+        self._recent_rewards: list[float] = []
+        self._escalation_window = 10        # look at last N rewards
+        self._escalation_threshold = 0.5    # escalate when mean > this
+
+    def report_reward(self, reward: float) -> None:
+        """Feed back the Judge's reward to adapt difficulty.
+
+        Called after each round with the reward the Judge received.
+        When the running average exceeds the threshold, the injector
+        escalates: more multi-failures, preference for harder types.
+        """
+        if not self.adaptive:
+            return
+        self._recent_rewards.append(reward)
+        if len(self._recent_rewards) > self._escalation_window:
+            self._recent_rewards = self._recent_rewards[-self._escalation_window:]
+        avg = sum(self._recent_rewards) / len(self._recent_rewards)
+        if avg > self._escalation_threshold and self._difficulty_level < 2:
+            self._difficulty_level += 1
+            # Shift the CDF toward more multi-failures
+            self.failure_rate = min(0.95, self.failure_rate + 0.1)
+        elif avg < 0.0 and self._difficulty_level > 0:
+            self._difficulty_level -= 1
+            self.failure_rate = max(0.3, self.failure_rate - 0.1)
 
     def inject(
         self,
