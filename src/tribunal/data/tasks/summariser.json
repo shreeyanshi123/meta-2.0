@@ -1,0 +1,122 @@
+[
+  {
+    "prompt": "Summarise the following quarterly earnings report into exactly 3 bullet points, preserving all key numeric facts.",
+    "source_material": "Acme Corp reported Q3 2025 revenue of $4.2 billion, representing a 12% year-over-year increase. Operating margins improved to 18.7%, up from 16.3% in the prior quarter. The company added 1,450 new enterprise customers during the period, bringing total enterprise accounts to 23,800. R&D expenditure reached $680 million, accounting for 16.2% of total revenue. CFO Maria Chen noted that cloud infrastructure spending grew 34% quarter-over-quarter, driven primarily by AI workload demand. Free cash flow was $890 million, and the company repurchased $300 million in shares. Headcount increased by 6% to 41,200 employees globally. The board approved a $0.45 per-share dividend, payable in December.",
+    "private_context": {"analyst_sentiment": "bullish", "internal_rating": "outperform"},
+    "tags": ["finance", "earnings", "numeric-heavy"]
+  },
+  {
+    "prompt": "Summarise the following infrastructure incident post-mortem into exactly 3 bullet points, preserving all key numeric facts.",
+    "source_material": "On March 14, 2025, a cascading failure in the us-east-1 availability zone caused 47 minutes of downtime for 38% of customer-facing services. The root cause was traced to a misconfigured BGP route advertisement that propagated to 12 edge routers within 90 seconds. During the incident, approximately 2.3 million API requests failed, resulting in an estimated revenue impact of $1.8 million. The mean time to detect (MTTD) was 4 minutes via automated alerting, but mean time to resolve (MTTR) was 43 minutes due to the need for manual intervention across 3 data centres. A total of 156 engineering hours were spent on incident response and follow-up remediation. Post-incident analysis identified 5 contributing factors including inadequate chaos testing coverage.",
+    "private_context": {"sla_breach": "yes", "customer_credits_issued": "$420,000"},
+    "tags": ["infrastructure", "incident", "numeric-heavy"]
+  },
+  {
+    "prompt": "Summarise the following clinical trial update into exactly 3 bullet points, preserving all key numeric facts.",
+    "source_material": "Phase III trial NCT-2025-0847 for compound RX-770 enrolled 3,200 participants across 42 clinical sites in 8 countries. At the 24-week interim analysis, the primary endpoint of HbA1c reduction was met with a mean decrease of 1.4% in the treatment arm versus 0.3% in the placebo arm (p < 0.001). Secondary endpoints showed a mean weight loss of 5.2 kg in the treatment group compared to 0.8 kg in the placebo group. Adverse events were reported in 18% of the treatment arm and 12% of the placebo arm, with the most common being nausea (7.3%) and headache (4.1%). Serious adverse events occurred in 2.1% of treated patients. The Data Safety Monitoring Board recommended continuation without modification. The trial is expected to complete enrollment of 4,800 patients by Q2 2026.",
+    "private_context": {"fda_feedback": "positive", "competitor_trial_status": "delayed"},
+    "tags": ["clinical", "pharma", "numeric-heavy"]
+  },
+  {
+    "prompt": "Summarise the following supply chain analysis into exactly 3 bullet points, preserving all key numeric facts.",
+    "source_material": "Global semiconductor supply chain analysis for Q4 2025 shows average lead times of 18.3 weeks, down from 26.7 weeks in Q4 2024. Warehouse inventory levels across the top 15 distributors averaged 42 days of supply, a 23% improvement over the prior year. Freight costs from Shenzhen to Los Angeles dropped to $2,840 per TEU, compared to $4,100 per TEU a year earlier. However, rare earth material prices increased 31% due to export restrictions, with neodymium reaching $142 per kilogram. Manufacturing capacity utilisation at TSMC's N3 node remained at 97%, while Samsung's 3nm GAA process operated at 78% utilisation. Total industry capital expenditure for the quarter was $38.4 billion, with 62% allocated to advanced nodes below 7nm.",
+    "private_context": {"strategic_reserve_level": "critical", "preferred_supplier": "TSMC"},
+    "tags": ["supply-chain", "semiconductor", "numeric-heavy"]
+  },
+  {
+    "prompt": "Summarise the following employee engagement survey results into exactly 3 bullet points, preserving all key numeric facts.",
+    "source_material": "The 2025 annual employee engagement survey received 8,450 responses out of 9,200 eligible employees, yielding a 91.8% response rate. Overall engagement score was 72 out of 100, up from 68 in the prior year. The highest-scoring dimension was 'Team Collaboration' at 81 points, while 'Career Development' scored lowest at 58 points. Manager effectiveness ratings averaged 76 points, with 23% of managers scoring below 60. Remote employees reported 6 points higher satisfaction than in-office counterparts. Voluntary attrition in the bottom quartile of engagement was 28%, compared to 8% in the top quartile. The survey identified 3 critical action areas: compensation transparency, learning budgets, and cross-functional mobility. Estimated annual cost of disengagement was $12.4 million based on productivity modelling.",
+    "private_context": {"ceo_priority": "retention", "budget_for_improvements": "$3.2M"},
+    "tags": ["hr", "engagement", "numeric-heavy"]
+  },
+  {
+    "prompt": "Summarise the following cybersecurity threat assessment into exactly 3 bullet points, preserving all key numeric facts.",
+    "source_material": "The Q3 2025 threat intelligence report documented 14,200 unique attack attempts against the corporate network, a 67% increase over Q2. Of these, 342 were classified as high-severity, with 18 resulting in confirmed breaches of the outer perimeter. Phishing remained the top attack vector at 41% of all attempts, followed by credential stuffing at 28% and zero-day exploits at 7%. Average dwell time for detected intrusions was 4.2 days, down from 11.8 days the previous quarter. The security operations centre processed 2.1 million alerts, of which 0.3% were true positives. Remediation costs totalled $2.7 million, including $890,000 for third-party forensic analysis. The organisation's NIST CSF maturity score improved from 2.8 to 3.4 on the 5-point scale.",
+    "private_context": {"known_apt_group": "APT-41", "unpatched_cves": "3"},
+    "tags": ["security", "threat", "numeric-heavy"]
+  },
+  {
+    "prompt": "Summarise the following market research findings into exactly 3 bullet points, preserving all key numeric facts.",
+    "source_material": "Consumer survey of 5,600 respondents across 12 metropolitan areas found that 73% of Gen Z consumers prefer subscription-based purchasing models, compared to 41% of Millennials and 22% of Gen X. Average monthly spending on digital subscriptions reached $84 per household, up from $62 two years ago. The top 3 subscription categories were streaming entertainment (92% penetration), meal kits (34%), and fitness apps (28%). Willingness to pay for ad-free experiences increased to 68%, up 15 percentage points from 2023. Churn rates for subscription services averaged 5.8% monthly, with the highest churn in beauty boxes at 12.3%. Brand loyalty scores for subscription services were 31% higher than for traditional retail purchases. The addressable market for subscription commerce is projected to reach $420 billion by 2027.",
+    "private_context": {"client_brand": "StreamVault", "competitive_intel": "Netflix testing bundled retail"},
+    "tags": ["market-research", "consumer", "numeric-heavy"]
+  },
+  {
+    "prompt": "Summarise the following environmental impact assessment into exactly 3 bullet points, preserving all key numeric facts.",
+    "source_material": "The 2025 sustainability audit of DataFlow Inc. revealed total Scope 1 and 2 emissions of 128,400 metric tonnes CO2e, a 14% reduction from the 2023 baseline. Data centre energy consumption was 1.84 TWh, with a power usage effectiveness (PUE) of 1.18 across 7 facilities. Renewable energy procurement covered 76% of total electricity demand through a mix of PPAs (54%) and RECs (22%). Water usage in cooling systems totalled 890 million litres, a 19% reduction achieved through liquid cooling adoption in 3 facilities. The company offset 34,000 tonnes through verified carbon credit purchases at an average price of $28 per tonne. Waste diversion rate reached 94%, with 620 tonnes of e-waste processed through certified recyclers. Science-based targets require a further 42% absolute reduction by 2030.",
+    "private_context": {"actual_vs_reported_gap": "minimal", "greenwashing_risk": "low"},
+    "tags": ["sustainability", "environment", "numeric-heavy"]
+  },
+  {
+    "prompt": "Summarise the following venture capital market update into exactly 3 bullet points, preserving all key numeric facts.",
+    "source_material": "Global venture capital investment in Q2 2025 totalled $94.3 billion across 7,840 deals, representing a 28% increase over Q1. AI and machine learning startups captured 38% of total funding, with the median Series A round reaching $18.2 million, up from $12.7 million a year prior. The top 5 mega-rounds (>$500M) accounted for $8.4 billion, led by a $2.1 billion raise by autonomous vehicle startup DriveLogic. Down rounds comprised 14% of all priced rounds, compared to 23% in Q2 2024. IPO exits generated $12.6 billion in proceeds across 34 offerings, while M&A exits totalled $28.9 billion from 186 transactions. Median time from Series A to exit extended to 8.4 years. Dry powder among venture funds reached a record $311 billion globally.",
+    "private_context": {"fund_strategy": "overweight AI infrastructure", "lp_sentiment": "cautiously optimistic"},
+    "tags": ["venture-capital", "finance", "numeric-heavy"]
+  },
+  {
+    "prompt": "Summarise the following logistics performance review into exactly 3 bullet points, preserving all key numeric facts.",
+    "source_material": "FY2025 logistics division performance review shows total shipments of 4.8 million parcels, up 16% year-over-year. On-time delivery rate was 94.2%, missing the 96% target by 1.8 percentage points. Average delivery cost per parcel decreased to $3.47 from $3.92, a 11.5% reduction driven by route optimisation algorithms. Last-mile delivery accounted for 53% of total logistics cost. The fleet expanded to 2,300 vehicles, including 340 electric vans representing 14.8% of the fleet. Warehouse automation reduced picking errors to 0.12%, down from 0.34%. Customer satisfaction with delivery experience scored 4.3 out of 5.0, based on 128,000 survey responses. Return logistics processed 412,000 items with an average turnaround of 3.2 business days.",
+    "private_context": {"driver_shortage_impact": "moderate", "automation_capex_approved": "$45M"},
+    "tags": ["logistics", "operations", "numeric-heavy"]
+  },
+  {
+    "prompt": "Summarise the following education technology report into exactly 3 bullet points, preserving all key numeric facts.",
+    "source_material": "The 2025 state of EdTech report surveyed 1,200 school districts serving 14.6 million students. Adoption of AI-powered tutoring tools reached 42% of districts, up from 18% in 2023. Districts using AI tutoring reported an average 8.3 percentile point improvement in standardised math scores and 5.7 points in reading. Annual per-student spending on educational technology averaged $312, totalling $4.6 billion nationally. Teacher satisfaction with EdTech tools averaged 3.8 out of 5.0, with the primary complaint being integration complexity (cited by 61% of educators). Student screen time for educational purposes averaged 3.4 hours per school day. Data privacy incidents affected 23 districts, impacting approximately 180,000 student records. The report projects the K-12 EdTech market will reach $32 billion by 2028.",
+    "private_context": {"district_partner": "LAUSD", "contract_renewal_risk": "high"},
+    "tags": ["education", "technology", "numeric-heavy"]
+  },
+  {
+    "prompt": "Summarise the following renewable energy deployment report into exactly 3 bullet points, preserving all key numeric facts.",
+    "source_material": "India's renewable energy capacity additions in FY2025 totalled 24.8 GW, bringing cumulative installed capacity to 198.3 GW. Solar installations accounted for 18.2 GW (73% of new capacity), with utility-scale projects averaging a levelised cost of energy of ₹2.14 per kWh. Wind energy added 4.9 GW, predominantly in Tamil Nadu and Gujarat. Battery energy storage deployments reached 3.2 GWh, a 280% increase over the prior fiscal year. The average capacity utilisation factor for solar plants was 21.4%, while wind achieved 28.7%. Foreign direct investment in the renewable sector was $8.6 billion, with Japanese and European investors contributing 58%. Grid curtailment of renewable energy averaged 3.8%, costing generators an estimated ₹4,200 crore in lost revenue. The government's target of 500 GW by 2030 requires an annual run-rate of 60 GW.",
+    "private_context": {"policy_risk": "subsidy reduction likely", "land_acquisition_bottleneck": "yes"},
+    "tags": ["energy", "renewable", "numeric-heavy"]
+  },
+  {
+    "prompt": "Summarise the following autonomous vehicle testing report into exactly 3 bullet points, preserving all key numeric facts.",
+    "source_material": "The California DMV autonomous vehicle disengagement report for 2025 covers 28 companies that collectively drove 14.2 million autonomous miles on public roads. The industry-wide disengagement rate improved to 1 per 28,400 miles, compared to 1 per 19,600 miles in 2024. Waymo led with 5.8 million miles and a disengagement rate of 1 per 42,100 miles. Cruise reported 2.1 million miles with a rate of 1 per 31,800 miles. There were 47 reported collisions involving autonomous vehicles, of which 38 (81%) were determined to be caused by human-driven vehicles. Average severity of AV-at-fault incidents was classified as minor in 7 of 9 cases. Testing expanded to 12 new cities, bringing the total to 34 cities with active AV testing permits. The industry invested an estimated $16.8 billion in AV R&D during the year.",
+    "private_context": {"unreported_near_misses": "estimated 200+", "regulatory_outlook": "tightening"},
+    "tags": ["automotive", "autonomous", "numeric-heavy"]
+  },
+  {
+    "prompt": "Summarise the following cloud computing cost analysis into exactly 3 bullet points, preserving all key numeric facts.",
+    "source_material": "Enterprise cloud spending analysis across 450 organisations reveals average annual cloud expenditure of $18.4 million per company, up 24% from the prior year. Multi-cloud adoption reached 87%, with organisations using an average of 3.2 cloud providers. Wasted cloud spend (unused or idle resources) averaged 32% of total cloud budgets, representing $2.64 billion in aggregate waste across the sample. GPU instance costs increased 41% year-over-year due to AI workload demand, with average hourly rates for A100-equivalent instances reaching $3.82. Reserved instance utilisation was 68%, leaving significant savings unrealised. FinOps team adoption grew to 54% of surveyed organisations, and those with mature FinOps practices reported 23% lower unit costs. Data egress charges averaged 8.4% of total cloud bills. The average organisation took 14 months to achieve cloud cost optimisation maturity.",
+    "private_context": {"our_waste_percentage": "38%", "board_cost_reduction_mandate": "20% by Q4"},
+    "tags": ["cloud", "cost", "numeric-heavy"]
+  },
+  {
+    "prompt": "Summarise the following food safety inspection report into exactly 3 bullet points, preserving all key numeric facts.",
+    "source_material": "The FDA's FY2025 food safety inspection summary covers 18,400 domestic facility inspections and 1,200 foreign facility inspections. Critical violations were identified in 12.3% of domestic inspections and 22.8% of foreign inspections. The most common violations were inadequate allergen controls (34% of critical findings), temperature abuse (28%), and sanitation deficiencies (21%). Warning letters were issued to 847 facilities, up 18% from the prior year. Import refusals totalled 14,600 shipments, with pesticide residue violations increasing by 42%. The agency's recall coordination resulted in 312 voluntary recalls covering approximately 89 million pounds of food products. Average time from hazard identification to public recall notification decreased to 6.2 days from 8.7 days. Foodborne illness outbreaks traced to manufacturing sources decreased 15% to 128 confirmed events.",
+    "private_context": {"our_facility_status": "passed with observations", "corrective_deadline": "60 days"},
+    "tags": ["food-safety", "regulatory", "numeric-heavy"]
+  },
+  {
+    "prompt": "Summarise the following digital advertising performance report into exactly 3 bullet points, preserving all key numeric facts.",
+    "source_material": "H1 2025 digital advertising performance across the portfolio of 34 brand campaigns showed total ad spend of $127 million, generating 8.4 billion impressions. Average cost per mille (CPM) was $15.12, up 9% year-over-year driven by privacy-related signal loss. Click-through rates averaged 1.82% for display and 4.7% for search campaigns. Return on ad spend (ROAS) was 4.3x for search, 2.1x for social, and 1.4x for programmatic display. Attribution modelling showed that 28% of conversions involved 3 or more touchpoints. Brand lift studies indicated a 12 percentage point increase in unaided awareness for the top 5 campaigns. Ad fraud detection systems flagged 6.8% of impressions as invalid traffic, recovering $8.6 million in potential waste. First-party data coverage reached 43% of targetable audiences, compared to 31% a year ago.",
+    "private_context": {"cpa_target": "$24", "competitor_spend_estimate": "$180M"},
+    "tags": ["advertising", "marketing", "numeric-heavy"]
+  },
+  {
+    "prompt": "Summarise the following telecommunications network report into exactly 3 bullet points, preserving all key numeric facts.",
+    "source_material": "The 5G network expansion report for FY2025 shows 24,800 new base stations deployed, bringing total 5G coverage to 78% of urban areas and 31% of rural areas. Average download speeds on the 5G network reached 412 Mbps, compared to 68 Mbps on 4G LTE in the same markets. Network latency averaged 12 milliseconds for 5G versus 42 milliseconds for 4G. Total capital expenditure on network infrastructure was $6.8 billion, with 58% allocated to 5G. Subscriber growth was 3.4 million new 5G connections, bringing the total to 18.9 million. Average revenue per user (ARPU) for 5G subscribers was $72 per month, 34% higher than 4G ARPU of $53.70. Network availability maintained 99.94% uptime across all tiers. Spectrum acquisition costs totalled $1.2 billion for C-band and mmWave licenses.",
+    "private_context": {"churn_rate": "1.8% monthly", "roaming_agreement_dispute": "ongoing with Carrier B"},
+    "tags": ["telecom", "5g", "numeric-heavy"]
+  },
+  {
+    "prompt": "Summarise the following manufacturing quality report into exactly 3 bullet points, preserving all key numeric facts.",
+    "source_material": "Q3 2025 manufacturing quality metrics for the Precision Components Division show a defect rate of 0.047%, equivalent to 470 defects per million opportunities (DPMO), down from 620 DPMO in Q3 2024. First-pass yield improved to 98.8% across 6 production lines. Scrap costs totalled $1.34 million, representing 0.8% of total material costs. Customer returns decreased 22% to 1,840 units, with the primary failure mode being dimensional tolerance exceedance (43% of returns). Statistical process control detected 14 out-of-control conditions, all resolved within 4 hours. Supplier quality audit scores averaged 87 out of 100 across 28 tier-1 suppliers, with 3 suppliers placed on probationary status. Measurement system analysis (MSA) studies were completed for 42 critical characteristics, with all achieving gauge R&R below 10%. Cost of quality was $4.2 million, comprising 2.4% of revenue.",
+    "private_context": {"pending_recall_investigation": "bearing assembly lot 2025-Q3-447", "six_sigma_target": "3.4 DPMO"},
+    "tags": ["manufacturing", "quality", "numeric-heavy"]
+  },
+  {
+    "prompt": "Summarise the following real estate market analysis into exactly 3 bullet points, preserving all key numeric facts.",
+    "source_material": "The Q3 2025 commercial real estate market analysis for the Greater Mumbai Metropolitan Region reports total office absorption of 8.2 million square feet, a 19% increase over Q2. Average Grade A office rents reached ₹142 per square foot per month in the CBD, while suburban micro-markets averaged ₹78. Vacancy rates declined to 14.8% from 17.2% a year ago. New supply of 5.6 million square feet was delivered across 12 projects, with an additional 22.4 million square feet under construction. The flex/co-working segment accounted for 24% of total absorption, up from 16% in 2024. Cap rates for prime office assets compressed to 7.2%, indicating strong investor appetite. Foreign institutional investment in commercial real estate totalled $2.8 billion for the quarter. The retail segment saw 3.1 million square feet of new mall space, with average occupancy at 91%.",
+    "private_context": {"acquisition_target": "Bandra-Kurla Complex tower", "internal_valuation": "₹2,400 crore"},
+    "tags": ["real-estate", "commercial", "numeric-heavy"]
+  },
+  {
+    "prompt": "Summarise the following healthcare operations report into exactly 3 bullet points, preserving all key numeric facts.",
+    "source_material": "The FY2025 hospital network performance review covers 14 facilities with a combined 4,800 beds. Average bed occupancy was 82.3%, up from 78.1% in FY2024. Emergency department visits totalled 1.24 million, with an average wait time of 38 minutes, down from 52 minutes after implementing AI-based triage. Surgical volume increased 11% to 186,000 procedures, with a surgical site infection rate of 0.72%, below the national benchmark of 1.1%. Patient satisfaction scores averaged 4.1 out of 5.0, with the highest ratings for nursing care (4.4) and lowest for billing experience (3.2). Revenue per patient day was $3,840, and total network revenue reached $6.7 billion. Staff turnover was 14.2%, with nursing turnover at 18.7%. Telehealth visits comprised 22% of all outpatient encounters, totalling 680,000 visits. Average length of stay was 4.8 days.",
+    "private_context": {"cms_audit_finding": "documentation deficiency in 3 facilities", "margin_pressure": "payer mix shift"},
+    "tags": ["healthcare", "operations", "numeric-heavy"]
+  }
+]

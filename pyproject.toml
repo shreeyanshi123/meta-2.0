@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tribunal-env"
+version = "0.1.0"
+description = "AI Agent Oversight Tribunal for OpenEnv Hackathon"
+authors = [
+    { name = "Hackathon Team" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "tribunal-shared",
+    "openenv",
+    "fastapi",
+    "uvicorn[standard]",
+    "pydantic>=2",
+    "httpx",
+    "numpy",
+    "python-dotenv",
+    "rich",
+    "rapidfuzz"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-asyncio",
+    "ruff",
+    "black"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+pythonpath = ["src", "shared", "client"]
